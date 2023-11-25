@@ -6,21 +6,18 @@ img {
     margin-right: 20px;
 }
 
-/* p.USERNAME{
+p.USERNAME{
     font-weight: bold;
     margin-top: 43px;
     font-size: x-large;
-} */
+}
 P{
     font-style: italic;
-    margin-left: 30px;
-    font-size: 18px;
+    font-size: 20px;
+    max-width: 794px;
 }
 h1{
     margin-left: 15px;
-}
-body{
-    background-color: aliceblue;
 }
 button {
     font-family: "helvetica neue", helvetica, sans-serif;
@@ -34,6 +31,15 @@ button {
     border-radius: 10px;
     padding: 3px 10px;
     cursor: pointer;
+}
+
+.info{
+    position: relative;
+    left: 15px;
+}
+
+.projects{
+
 }
 
 
