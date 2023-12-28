@@ -23,17 +23,17 @@ P{
 h1{
     margin-left: 15px;
 }
-button {
-    font-family: "helvetica neue", helvetica, sans-serif;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-align: center;
-    border: 2px solid rgb(200 200 0 / 0.6);
-    background-color: rgb(0 217 217 / 0.6);
-    color: rgb(100 0 0 / 1);
-    box-shadow: 1px 1px 2px rgb(0 0 200 / 0.4);
+
+button{
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: rgba(248, 228, 228, 0.6);
+    color: rgb(255 255 255 / 0.6);
+    border: 2px solid rgb(0 0 0 / 0.6);
     border-radius: 10px;
-    padding: 3px 10px;
+    padding: 10px;
+    font-size: 20px;
     cursor: pointer;
 }
 
@@ -44,7 +44,7 @@ button {
 
 .navbar {
     height: 60px;
-    background-color: rgb(0 0 0 / 0.6);
+    /* background-color: rgb(0 0 0 / 0.6); */
     text-align: center;
     display: flex;
     justify-content: center;
@@ -84,10 +84,13 @@ button {
     margin-right: 20px;
     margin-bottom: 20px;
     padding: 20px;
-    border: 2px solid rgb(0 0 0 / 0.6);
+    border: 2px solid rgba(0, 0, 0, 0.6);
     border-radius: 10px;
-    background-color: rgb(0 0 0 / 0.6);
-    color: rgb(255 255 255 / 0.6);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transform: perspective(1000px) rotateX(3.8deg);
+    /* opacity: 0.5; */
 }
 
 .projects a {
