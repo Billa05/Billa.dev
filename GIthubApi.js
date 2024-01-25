@@ -1,4 +1,5 @@
-require('dotenv').config();
+import GITHUB_TOKEN from './config.js';
+
 
 
 async function fetchData() {
@@ -7,7 +8,7 @@ async function fetchData() {
     try {
         const response = await fetch('https://api.github.com/users/BIlla05/events', {
             headers: {
-                Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
+                Authorization: `Bearer ${GITHUB_TOKEN}`
             }
         });
 
@@ -22,7 +23,6 @@ async function fetchData() {
         for (let i=0;i<data.length;i++){
             let date = new Date(data[i]?.created_at);
             let repo_name = data[i]?.repo?.name;
-            let repo_url = repo_name ? "https://github.com/"+repo_name : undefined;
             let issue_title = data[i]?.payload?.issue?.title;
             let commit_msg = data[i]?.payload?.commits?.[0]?.message;
 
@@ -36,7 +36,6 @@ async function fetchData() {
                     activity[index] = {
                         date: date,
                         repo_name: repo_name,
-                        repo_url: repo_url,
                         issue_title: issue_title,
                         commit_msg: commit_msg
                     };
@@ -45,19 +44,19 @@ async function fetchData() {
                 activity.push({
                     date: date,
                     repo_name: repo_name,
-                    repo_url: repo_url,
                     issue_title: issue_title,
                     commit_msg: commit_msg
                 });
             }
         }
 
-        return activity;
+        return activity.reverse();
     } catch (error) {
         console.error('Error:', error);
     }
 }
 
-fetchData().then(responseData => {
-    console.log(responseData);
-});
+export default fetchData;
+// fetchData().then(responseData => {
+//     console.log(responseData);
+// });
