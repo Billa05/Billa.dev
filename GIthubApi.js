@@ -1,14 +1,10 @@
-import GITHUB_TOKEN from './config.js';
-
-
-
 async function fetchData() {
     let activity = []
 
     try {
         const response = await fetch('https://api.github.com/users/BIlla05/events', {
             headers: {
-                Authorization: `Bearer ${GITHUB_TOKEN}`
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`
             }
         });
 
@@ -31,7 +27,6 @@ async function fetchData() {
             if (existingActivity) {
                 let existingDate = new Date(existingActivity.date);
                 if (date > existingDate) {
-                    // Replace the existing activity with the new one
                     let index = activity.indexOf(existingActivity);
                     activity[index] = {
                         date: date,
@@ -57,6 +52,3 @@ async function fetchData() {
 }
 
 export default fetchData;
-// fetchData().then(responseData => {
-//     console.log(responseData);
-// });
