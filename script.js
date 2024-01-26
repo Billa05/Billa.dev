@@ -1,5 +1,6 @@
-
 import fetchData from './GIthubApi.js';
+
+let timeoutId;
 
 fetchData().then(activity => {
     const container = document.querySelector('.flex.flex-col.items-center.space-y-8');
@@ -14,7 +15,11 @@ fetchData().then(activity => {
         element.appendChild(numberDiv);
 
         const descriptionDiv = document.createElement('div');
-        descriptionDiv.className = 'absolute bottom-full mb-2 w-48 p-2 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 rounded shadow opacity-0 group-hover:opacity-100 transition-opacity duration-200';
+        if (index==activity.length-1){
+            descriptionDiv.className = 'absolute bottom-full mt-2 p-2 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 rounded shadow opacity-0 ';
+        }else{
+            descriptionDiv.className = 'absolute top-full mt-2 p-2 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 rounded shadow opacity-0 ';
+        }
         if(!item.issue_title){
             descriptionDiv.innerHTML = `<p><a href="https://github.com/${item.repo_name}" target="_blank">repository: ${item.repo_name}</a></p>
         <br><p>Self Project</p>`;
@@ -25,6 +30,29 @@ fetchData().then(activity => {
         element.appendChild(descriptionDiv);
 
         container.appendChild(element);
+
+        numberDiv.addEventListener("mouseenter",()=>{
+            clearTimeout(timeoutId);
+            descriptionDiv.classList.remove("opacity-0");
+        })
+
+        numberDiv.addEventListener("mouseleave",()=>{
+            timeoutId = setTimeout(() => {
+                descriptionDiv.classList.add("opacity-0");
+            }, 200); // 200ms delay before hiding the description
+        })
+
+        descriptionDiv.addEventListener("mouseenter",()=>{
+            clearTimeout(timeoutId);
+        })
+
+        descriptionDiv.addEventListener("mouseleave",()=>{
+            descriptionDiv.classList.add("opacity-0");
+        })
+
+        element.addEventListener("mouseleave",()=>{
+            descriptionDiv.classList.add("opacity-0");
+        })
 
         if(index!=activity.length-1){
             const separator = document.createElement('div');
