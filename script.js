@@ -1,6 +1,6 @@
 let timeoutId;
 
-fetch('/Api/FetchData')
+fetch('/api/fetchdata')
     // .then(response => response.json())
     .then(activity => {
         const container = document.querySelector('.flex.flex-col.items-center.space-y-8');

@@ -1,10 +1,12 @@
+const fetch = require('node-fetch');
+
 module.exports = async (req, res) => {
     let activity = []
 
     try {
         const response = await fetch('https://api.github.com/users/BIlla05/events', {
             headers: {
-                Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
+                Authorization: `Bearer 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`
             }
         });
 
