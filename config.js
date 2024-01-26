@@ -1,0 +1,3 @@
+const GITHUB_TOKEN="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"
+
+export default GITHUB_TOKEN;
