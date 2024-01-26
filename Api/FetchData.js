@@ -1,7 +1,4 @@
-// api/fetchData.js
-// const fetch = require('node-fetch');
-
-module.exports = async function fetchData() {
+module.exports = async (req, res) => {
     let activity = []
 
     try {
@@ -46,7 +43,7 @@ module.exports = async function fetchData() {
             }
         }
 
-        return activity.reverse();
+        res.json(activity.reverse());
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ error: 'Failed to fetch data' });
