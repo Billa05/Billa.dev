@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     try {
         const response = await axios.get('https://api.github.com/users/BIlla05/events', {
             headers: {
-                Authorization: `Bearer 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`
+                Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
             }
         });
 
