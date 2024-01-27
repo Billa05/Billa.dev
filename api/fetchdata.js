@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get("/",async (req, res) => {
+app.use("/",async (req, res) => {
     let activity = []
 
     try {
