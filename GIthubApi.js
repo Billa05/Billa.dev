@@ -8,7 +8,7 @@ async function fetchData() {
     try {
         const response = await fetch('https://api.github.com/users/BIlla05/events', {
             headers: {
-                Authorization: `Bearer ${GITHUB_TOKEN}`
+                Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
             }
         });
 
