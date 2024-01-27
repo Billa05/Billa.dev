@@ -1,5 +1,5 @@
 const axios = require('axios');
-
+console.log("hello")
 module.exports = async (req, res) => {
     let activity = []
 
