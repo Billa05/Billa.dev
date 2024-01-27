@@ -1,20 +1,27 @@
-import fetch from 'node-fetch';
+const express = require("express");
+const app = express();
+const cors = require('cors');
+const axios = require('axios');
+const port = process.env.PORT || 3000;
+app.use(cors());
+app.use(express.json());
 
-module.exports = async (req, res) => {
+
+app.get("/",async (req, res) => {
     let activity = []
 
     try {
-        const response = await fetch('https://api.github.com/users/BIlla05/events', {
+        const response = await axios.get('https://api.github.com/users/BIlla05/events', {
             headers: {
                 Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
             }
         });
 
-        if (!response.ok) {
+        if (response.status < 200 || response.status >= 300) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data = await response.json();
+        const data = await response.data;
 
         for (let i=0;i<data.length;i++){
             let date = new Date(data[i]?.created_at);
@@ -50,4 +57,8 @@ module.exports = async (req, res) => {
         console.error('Error:', error);
         res.status(500).json({ error: 'Failed to fetch data' });
     }
-};
+});
+
+app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+});

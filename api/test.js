@@ -1,6 +1,4 @@
-// test.js
-const fetchData = require('./FetchData');
-
-fetchData()
-    .then(activity => console.log(activity))
-    .catch(error => console.error('Error:', error));
+fetch("http://localhost:3000/")
+    .then(response => response.json())
+    .then(data => {console.log(data);})
+    .catch(error => console.error(error));

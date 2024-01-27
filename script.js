@@ -1,7 +1,7 @@
 let timeoutId;
 
-fetch('/api/fetchdata')
-    // .then(response => response.json())
+fetch('http://localhost:3000/')
+    .then(response => response.json())
     .then(activity => {
         const container = document.querySelector('.flex.flex-col.items-center.space-y-8');
 
