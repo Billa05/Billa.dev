@@ -1,6 +1,6 @@
 let timeoutId;
 
-fetch('https://billa05-github-io.vercel.app/api/fetchdata')
+fetch('https://www.billa05-github-io.vercel.app/api/fetchdata')
 .then(response => response.json())
 .then(activity => {
     const container = document.querySelector('.flex.flex-col.items-center.space-y-8');
