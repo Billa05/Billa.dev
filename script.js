@@ -1,6 +1,10 @@
-import fetchData from './GIthubApi.js';
-
 let timeoutId;
+
+async function fetchData() {
+    const response = await fetch('https://billa05-github-3825olijc-billa05s-projects.vercel.app/api/fetchdata');
+    const data = await response.json();
+    return data;
+}
 
 fetchData().then(activity => {
     const container = document.querySelector('.flex.flex-col.items-center.space-y-8');
