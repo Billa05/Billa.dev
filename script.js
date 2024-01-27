@@ -1,12 +1,8 @@
 let timeoutId;
 
-async function fetchData() {
-    const response = await fetch('https://billa05-github-io.vercel.app/api/fetchdata');
-    const data = await response.json();
-    return data;
-}
-
-fetchData().then(activity => {
+fetch('https://billa05-github-io.vercel.app/api/fetchdata')
+.then(response => response.json())
+.then(activity => {
     const container = document.querySelector('.flex.flex-col.items-center.space-y-8');
 
     activity.forEach((item, index) => {
