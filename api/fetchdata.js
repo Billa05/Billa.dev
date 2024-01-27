@@ -2,6 +2,11 @@ const axios = require('axios');
 module.exports = async (req, res) => {
     let activity = []
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+
     try {
         const response = await axios.get('https://api.github.com/users/BIlla05/events', {
             headers: {
