@@ -1,7 +1,7 @@
 let timeoutId;
 
 async function fetchData() {
-    const response = await fetch('https://billa05-github-3825olijc-billa05s-projects.vercel.app/api/fetchdata');
+    const response = await fetch('https://billa05-github-io.vercel.app/api/fetchdata');
     const data = await response.json();
     return data;
 }
